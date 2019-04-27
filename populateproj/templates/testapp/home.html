@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{%load staticfiles%}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table border="3">
+      <thead>
+        <td>sno</td>
+        <td>brand</td>
+        <td>model</td>
+        <td>year</td>
+        <td>fuel</td>
+        <td>cc</td>
+        <td>mobileno</td>
+      </thead>
+      {%load cust_filters%}
+      {%for cdata in cdata%}
+      <tr>
+        <td>{{cdata.id}}</td>
+        <td>{{cdata.brand|f2lower}}</td>
+        <td>{{cdata.model}}</td>
+        <td>{{cdata.year}}</td>
+        <td>{{cdata.fuel|add:"(P/D)"}}</td>
+        <td>{{cdata.cc}}</td>
+        <td>{{cdata.mobileno}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>
